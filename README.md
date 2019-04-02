@@ -33,7 +33,7 @@ optional arguments:
 
 Start crawling from `http://guardicore.com` with the maximum depth of 1:
 ```
-./crawl.py "http://guardicore.com" --depth 1
+$ ./crawl.py "http://guardicore.com" --depth 1
 ```
 
 This will create 3 new CSV files:
@@ -50,10 +50,18 @@ https://guardicore.allbound.com/,URLError.EXTERNAL_DOMAIN
 https://threatintelligence.guardicore.com/,URLError.EXTERNAL_DOMAIN
 https://www.youtube.com/watch?v=o3n1FO3Jyoo,URLError.EXTERNAL_DOMAIN
 
- $ head dupimgs.csv
+$ head dupimgs.csv
 URL,md5
 
 ```
 
 
 The last file is empty, since there were no duplicate images found.
+
+
+# Notes
+`invalid.csv` links are not deduplicated, so that one might need to it like so:
+
+```
+$ sort invalid.csv  | uniq -c | awk '{print $2}'
+```
