@@ -56,6 +56,10 @@ URL,md5
 ```
 
 
+`visited.csv` will contain visited URL with its corresponding depth per each line.
+
+`invalid.csv` will contain URLs alongside the reason of why they were not processed.
+
 The last file is empty, since there were no duplicate images found.
 
 
